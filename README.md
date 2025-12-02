@@ -1,1 +1,0 @@
-# Trabalho---Controle-pessoal-de-finan-as
