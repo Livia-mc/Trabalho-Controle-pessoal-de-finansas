@@ -47,8 +47,15 @@ exibir_despesas()
 exibir_resumo()
 
 function apagar(){
-    var lista_despesas = JSON.parse(localStorage.getItem('despesas')) || [];
-        localStorage.setItem('despesas', JSON.stringify([]));
-        exibir_despesas();
-        exibir_resumo();
+    var lista_despesas = JSON.parse(localStorage.getItem('despesas')) || []
+        localStorage.setItem('despesas', JSON.stringify([]))
+        exibir_despesas()
+        exibir_resumo()
+}
+
+function apagar2(){
+    localStorage.removeItem('salario')
+    localStorage.setItem('despesas', JSON.stringify([]))
+    exibir_despesas();
+    exibir_resumo();
 }
