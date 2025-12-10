@@ -54,8 +54,15 @@ function apagar(){
 }
 
 function apagar2(){
-    localStorage.removeItem('salario')
-    localStorage.setItem('despesas', JSON.stringify([]))
-    exibir_despesas();
-    exibir_resumo();
+    var salario = parseFloat(localStorage.getItem('salario')) || 0;
+    var despesas = JSON.parse(localStorage.getItem('despesas')) || []
+
+    if(salario === 0 && despesas.length === 0){
+        alert("Não tem o que apagar");
+    } else {
+        localStorage.removeItem('salario');
+        localStorage.setItem('despesas', JSON.stringify([]));
+        exibir_despesas();
+        exibir_resumo();
+    }
 }
