@@ -46,23 +46,26 @@ function exibir_resumo(){
 exibir_despesas()
 exibir_resumo()
 
-function apagar(){
-    var lista_despesas = JSON.parse(localStorage.getItem('despesas')) || []
-        localStorage.setItem('despesas', JSON.stringify([]))
-        exibir_despesas()
-        exibir_resumo()
-}
 
-function apagar2(){
-    var salario = parseFloat(localStorage.getItem('salario')) || 0;
+function apagar(){
+    var salario = parseFloat(localStorage.getItem('salario')) || 0
     var despesas = JSON.parse(localStorage.getItem('despesas')) || []
 
     if(salario === 0 && despesas.length === 0){
-        alert("Não tem o que apagar");
+        alert("Não tem o que apagar")
     } else {
-        localStorage.removeItem('salario');
-        localStorage.setItem('despesas', JSON.stringify([]));
-        exibir_despesas();
-        exibir_resumo();
+        localStorage.removeItem('salario')
+        localStorage.setItem('despesas', JSON.stringify([]))
+        exibir_despesas()
+        exibir_resumo()
     }
+}
+
+function apagar2(){
+    var lista_despesas = JSON.parse(localStorage.getItem('despesas')) || []
+    lista_despesas.pop()
+    localStorage.setItem('despesas', JSON.stringify(lista_despesas))
+
+    exibir_despesas()
+    exibir_resumo()
 }
